@@ -1,0 +1,9 @@
+install.packages("ISwR")
+library(ISwR)
+
+assignment2 <- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22) 
+  ##creates data array "assignment 2"
+myMean <- function(assignment2) (sum(assignment2)/length(assignment2))
+  ##creates function "myMean" to be the sum of assignment2 divided by the length of assignment2 (this will calculate the mean)
+myMean(assignment2)
+  #gets result
