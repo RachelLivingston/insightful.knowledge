@@ -1,0 +1,43 @@
+#1. create a pie chart
+mypie<-c(40,30,20,10)
+mypie
+pie(mypie)
+mycolors_1<-c("red","blue","green","yellow")
+pie(mypie,col=mycolors_1)
+
+#2. Create a bar chart
+x<-c(40,30,20,10)
+x
+barplot(x)
+names(x)<-c("red","blue","green","brown")
+x
+barplot(x)
+mycolors_2<-c("red","blue","green","brown")
+barplot(x,col=mycolors_2)
+
+#3. Create a histogram
+hist(USArrests$Murder)
+hist(USArrests$Murder,main="US Arrest Rate for Murder") #give title
+hist(USArrests$Murder,main="US Arrests for Murder by State",
+     xlab="Crime Rate",
+     ylab='Frequency') #give title and label axes
+hist(USArrests$Murder,main="US Arrests for Murder by State",
+     xlab="Crime Rate",
+     ylab='Frequency',
+     col="red") #give title, label axes, and give color
+
+#4. Create a Boxplot
+boxplot(USArrests$Murder)
+boxplot(USArrests$Murder,
+        main="US Arrest Rate for Murder",
+        ylab="Crime Rate")
+Arrest.Murder<- c(USArrests$Murder)
+Arrest.Rape<- c(USArrests$Rape)
+Arrest.UrbanPop<-c(USArrests$UrbanPop)
+
+boxplot(USArrests$Murder,USArrests$Rape,USArrests$UrbanPop)
+mycolors_3<-c("green","purple","orange")
+boxplot(USArrests$Murder,USArrests$Rape,USArrests$UrbanPop,
+        names=c("Murder","Rape","UrbanPop"),
+        col=mycolors_3)
+
