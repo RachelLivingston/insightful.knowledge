@@ -1,0 +1,22 @@
+getwd()
+Dataset<- read.table("Assignment 6 Dataset.txt",sep=",", header = TRUE)
+
+install.packages("pryr")
+install.packages("plyr")
+require(ISLR)
+require(boot)
+library(data.table)
+library(plyr)
+
+
+StudentAverage <- ddply(Dataset,"Sex",transform,Grade.Average=mean(Grade))
+StudentAverage$sex<-is.logical(StudentAverage$sex)
+sex = StudentAverage$sex
+mean(StudentAverage$sex)
+
+write.table(StudentAverage,"Sorted_Average", sep= ",")
+
+i_students = subset(StudentAverage,grepl("[i]",StudentAverage$Name,ignore.case=T))
+
+write.csv(i_students,"Students with I")
+
