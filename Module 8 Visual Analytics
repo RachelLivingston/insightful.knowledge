@@ -1,0 +1,18 @@
+#install.packages("ggplot2")
+library(ggplot2)
+
+#install.packages("Hmisc")
+library(Hmisc)
+
+head(mtcars)
+
+#correlation Analysis
+cor(mtcars$mpg,mtcars$hp)
+
+
+
+#graph
+graphA<- ggplot(mtcars, aes(mpg,hp))+
+  geom_point(aes(color=factor(cyl))) +
+  stat_smooth(method = "lm")
+graphA
