@@ -1,0 +1,39 @@
+getwd()
+
+#read data
+Hurricane<- read.csv("hurricNamed.csv")
+
+#clean up useless columns
+Hurricane<- Hurricane[,-1]
+
+#visualization without package
+plot(Hurricane$Year,Hurricane$LF.WindsMPH,
+     main="Hurricane Winds by Year", 
+     type="s",
+     xlab="Year",
+     ylab="Wind Speed (MPH)",
+     col="darkslategray4")
+
+
+#visualization with lattice
+#install.packages("lattice")
+library(lattice)
+xyplot(LF.WindsMPH~Year,data=Hurricane,
+       col="deeppink4",
+       ylab="Wind Speed (MPH)",
+       main="Hurricane Winds by Year")
+
+
+#visualization with ggplot2
+#install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(Hurricane, aes(y=LF.PressureMB,x=LF.WindsMPH,color= Year)) +
+  geom_point(size= 3,alpha=.7) +
+  scale_color_distiller(palette="Set3") +
+  labs(x="Wind Speed (MPH)",
+       y="Pressure (MB)",
+       title= "Hurricane Wind Speed in Correlation to Pressure by Year")
+       
+  
+  
