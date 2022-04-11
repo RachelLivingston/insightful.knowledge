@@ -1,0 +1,44 @@
+
+---
+title: 'Module #12'
+author: "Rachel Livingston"
+date: '2022-04-11'
+output: html_document
+---
+
+#Create my own R Markdown file
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#input the data, load packages
+
+```{r}
+
+#install.packages("ggplot2")
+#install.packages("scales")
+#install.packages("dplyr")
+library(dplyr)
+library(ggplot2)
+library(scales)
+
+
+data<- mtcars
+data$vehicle<- paste(row.names(data))
+
+
+
+
+```
+
+#create the report
+
+```{r}
+
+ggplot(data[tail(order(data$hp),20),],aes(y=vehicle,x=mpg, size=gear))+
+  geom_point(aes(color=cyl)) +
+  labs(title="Top 20 Vehicles in Horsepower",subtitle="Broken down by number of cylinders and gears") + 
+  theme_linedraw()
+
+```
